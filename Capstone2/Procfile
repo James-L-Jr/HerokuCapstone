@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -jar target/Capstone2-0.0.1-SNAPSHOT.jar -Dserver.port=$port=$PORT $JAR_OPTS
