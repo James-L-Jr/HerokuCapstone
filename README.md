@@ -1,2 +1,0 @@
-# HerokuCapstone
-HerokuBranches
