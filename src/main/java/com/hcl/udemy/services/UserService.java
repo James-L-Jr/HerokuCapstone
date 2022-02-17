@@ -2,7 +2,6 @@ package com.hcl.udemy.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.hcl.udemy.domain.User;
 import com.hcl.udemy.exceptions.UsernameAlreadyExistsException;
 import com.hcl.udemy.repositories.UserRepository;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-
     @Autowired
     private UserRepository userRepository;
 
@@ -20,7 +18,6 @@ public class UserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public User saveUser (User newUser){
-
         try{
             newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
             //Username has to be unique (exception)
@@ -31,11 +28,7 @@ public class UserService {
             return userRepository.save(newUser);
 
         }catch (Exception e){
-            throw new UsernameAlreadyExistsException("Username '"+newUser.getUsername()+"' already exists");
+            throw new UsernameAlreadyExistsException("Username '" + newUser.getUsername() + "' already exists");
         }
-
     }
-
-
-
 }
